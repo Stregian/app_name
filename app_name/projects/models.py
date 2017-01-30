@@ -1,9 +1,10 @@
 from __future__ import unicode_literals
 from django.db import models
-
+from django_extensions.db.fields import AutoSlugField
 # Create your models here.
 class Project(models.Model):
-	project_name = models.CharField(max_length = 100)
-	project_year = models.IntegerField()
-	project_gallery = models.SlugField(100)
-	project_categories = models.CharField(max_length = 50)
+	
+	title = models.CharField(max_length = 100)
+	year = models.IntegerField()
+	slug = AutoSlugField(populate_from=('title'), unique=True, max_length=100,editable=True)  
+	categories = models.CharField(max_length = 50)
