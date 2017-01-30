@@ -5,5 +5,5 @@ from django.db import models
 class Project(models.Model):
 	project_name = models.CharField(max_length = 100)
 	project_year = models.IntegerField()
-	#project_gallery = models.URLField()
+	project_gallery = models.SlugField(100)
 	project_categories = models.CharField(max_length = 50)
