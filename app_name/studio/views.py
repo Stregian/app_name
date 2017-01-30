@@ -1,10 +1,21 @@
 from django.shortcuts import render
-
+from django.http import HttpResponse
 # Create your views here.
-def index():
+from models import Award, Competition, Publication
 
-def awards():
+def index(request):
+	html = 'this is an index page'
+	return HttpResponse(html)
 
-def competitions():
+def awards(request):
+	html = 'awards page'
+	return HttpResponse(html)
 
-def publications():
+def competitions(request):
+	html = 'competitions page'
+	return HttpResponse(html)
+
+def publications(request):
+	html = 'publications page'
+	return HttpResponse(html)
+

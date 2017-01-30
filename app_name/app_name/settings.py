@@ -25,12 +25,14 @@ SECRET_KEY = '_jko=x4=$h0hj$wzi^87^t+m%f4dvzh+((sg4%jqu@ip8v(+=u'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [u'139.162.217.204']
+ALLOWED_HOSTS = [	u'139.162.217.204',
+					u'127.0.0.1']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+	'studio.apps.StudioConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
