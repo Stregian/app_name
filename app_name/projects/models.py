@@ -8,3 +8,5 @@ class Project(models.Model):
 	year = models.IntegerField()
 	slug = AutoSlugField(populate_from=('title'), unique=True, max_length=100,editable=True)  
 	categories = models.CharField(max_length = 50)
+	def __str__(self):
+		return self.title
