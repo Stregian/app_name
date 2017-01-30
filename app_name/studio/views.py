@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from models import Award, Competition, Publication
 
 def index(request):
-	html = 'this is an index page'
+	html = 'this is an index page for the studio'
 	return HttpResponse(html)
 
 def awards(request):

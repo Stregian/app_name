@@ -33,6 +33,7 @@ ALLOWED_HOSTS = [	u'139.162.217.204',
 
 INSTALLED_APPS = [
 	'studio.apps.StudioConfig',
+	'projects.apps.ProjectsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
