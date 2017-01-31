@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 from django.db import models
 from django_extensions.db.fields import AutoSlugField
+from sorl.thumbnail import ImageField
 import os
 # Create your models here.
 
@@ -29,7 +30,7 @@ class Project(models.Model):
 class Image(models.Model):
 	project = models.ForeignKey(Project, related_name='related_image')
 	number = models.IntegerField(default = 0)
-	image = models.ImageField(upload_to= 'projects/')
+	image = ImageField(upload_to= 'projects/')
 	description = models.TextField(blank = True)
 	
 	def __unicode__(self):

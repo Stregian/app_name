@@ -32,6 +32,7 @@ ALLOWED_HOSTS = [	u'139.162.217.204',
 # Application definition
 
 INSTALLED_APPS = [
+	'sorl.thumbnail',
 	'studio.apps.StudioConfig',
 	'projects.apps.ProjectsConfig',
     'django.contrib.admin',

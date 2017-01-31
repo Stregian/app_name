@@ -7,7 +7,7 @@ from .models import Project, Image
 def index(request):
     project_list = Project.objects.order_by('slug')
     context ={'project_list': project_list} 
-    return render(request, 'templates/projects/index.html', context)
+    return render(request, 'projects/index.html', context)
 	
 def project(request, slug):
 	project = get_object_or_404(Project, slug=slug)
