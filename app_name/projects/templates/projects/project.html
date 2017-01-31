@@ -1,0 +1,8 @@
+<head>{{ project.title }}</head>
+<body>
+<br/>
+{% for i in project.related_image.all %}
+	<img src="{{i.image.url}}" />
+
+{% endfor %}
+<body>
