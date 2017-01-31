@@ -1,8 +1,13 @@
 <head>{{ project.title }}</head>
+{% load thumbnail %}
 <body>
 <br/>
 {% for i in project.related_image.all %}
-	<img src="{{i.image.url}}" />
 
+	{% thumbnail i.image "100x100" crop="center" as im %}
+    	<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+	{% endthumbnail %}
+	
+	<img src="{{i.image.url}}" />
 {% endfor %}
 <body>

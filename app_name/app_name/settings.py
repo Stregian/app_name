@@ -32,7 +32,7 @@ ALLOWED_HOSTS = [	u'139.162.217.204',
 # Application definition
 
 INSTALLED_APPS = [
-	'sorl.thumbnail',
+
 	'studio.apps.StudioConfig',
 	'projects.apps.ProjectsConfig',
     'django.contrib.admin',
@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+     'sorl.thumbnail',
 ]
 
 MIDDLEWARE = [
@@ -121,7 +123,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
+
 STATIC_URL = '/static/'
+#####CHARLESSTRICKLAND  
+
 MEDIA_URL = '/media/'
 if LOCAL:
 	STATIC_ROOT = os.path.abspath('static')
@@ -129,3 +134,5 @@ if LOCAL:
 else: 
 	STATIC_ROOT = '/srv/django-static-files/app_name'
 	
+TEMPLATE_DEBUG = DEBUG
+THUMBNAIL_DEBUG = DEBUG

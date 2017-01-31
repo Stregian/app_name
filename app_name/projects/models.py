@@ -31,6 +31,7 @@ class Image(models.Model):
 	project = models.ForeignKey(Project, related_name='related_image')
 	number = models.IntegerField(default = 0)
 	image = ImageField(upload_to= 'projects/')
+	thumbnail = ImageField(upload_to= 'projects/', null = True)
 	description = models.TextField(blank = True)
 	
 	def __unicode__(self):

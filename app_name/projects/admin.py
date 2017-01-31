@@ -8,6 +8,7 @@ class ImageInline(AdminImageMixin, admin.TabularInline):
 
 class ProjectAdmin(admin.ModelAdmin):
     inlines = [ImageInline]
+   
 
 admin.site.register(Project, ProjectAdmin)
 admin.site.register(Category)
