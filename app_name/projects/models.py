@@ -3,6 +3,7 @@ from django.db import models
 from django_extensions.db.fields import AutoSlugField
 from sorl.thumbnail import ImageField
 import time
+import datetime
 import os
 from django.template.defaultfilters import slugify
 
@@ -33,10 +34,9 @@ class Project(models.Model):
     title = models.CharField(max_length=100, help_text="The name of this project")
     location = models.CharField(max_length=50, default="")
     information = models.TextField()
-    year = models.IntegerField()
     slug = AutoSlugField(populate_from=('title'), unique=True, max_length=100,editable=True)  
     categories = models.ManyToManyField(Category)
-	
+    date = models.DateField(default = datetime.datetime.now())
     def __unicode__(self):
         return self.title
 		
