@@ -32,7 +32,7 @@ ALLOWED_HOSTS = [	u'139.162.217.204',
 # Application definition
 
 INSTALLED_APPS = [
-
+	'people.apps.PeopleConfig',
 	'studio.apps.StudioConfig',
 	'projects.apps.ProjectsConfig',
     'django.contrib.admin',
@@ -134,5 +134,5 @@ if LOCAL:
 else: 
 	STATIC_ROOT = '/srv/django-static-files/app_name'
 	
-TEMPLATE_DEBUG = DEBUG
+
 THUMBNAIL_DEBUG = DEBUG

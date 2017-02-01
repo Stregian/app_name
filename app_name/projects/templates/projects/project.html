@@ -6,8 +6,28 @@
 
 	{% thumbnail i.image "100x100" crop="center" as im %}
     	<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
-	{% endthumbnail %}
+    {% endthumbnail %}	
 	
-	<img src="{{i.image.url}}" />
+{% endfor %}
+
+
+{% for i in project.related_image.all %}
+
+
+    	
+    	
+    	{% if i.image|is_portrait %}
+    		<p>Portrait</p>
+    		{% thumbnail i.image "x1000" as im %}
+    		    	<img src="{{ im.url }}">
+    		{% endthumbnail %}
+    	{% else %}
+    		<p>Landscape</p>
+    		{% thumbnail i.image "1000" as im %}
+    		    	<img src="{{ im.url }}">
+    		{% endthumbnail %}
+    	{% endif %}
+
+
 {% endfor %}
 <body>
