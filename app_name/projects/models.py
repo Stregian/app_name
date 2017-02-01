@@ -8,6 +8,9 @@ import os
 from django.template.defaultfilters import slugify
 
 # Create your models here.
+YEAR_CHOICES = []
+for y in range(1990,datetime.datetime.now().year+5):
+	YEAR_CHOICES.append((y,y))
 
 def image_path(instance, filename):
     filename = os.path.splitext(filename)
@@ -37,6 +40,7 @@ class Project(models.Model):
     slug = AutoSlugField(populate_from=('title'), unique=True, max_length=100,editable=True)  
     categories = models.ManyToManyField(Category)
     date = models.DateField(default = datetime.datetime.now())
+    year = models.IntegerField(max_length=4, choices=YEAR_CHOICES, default=datetime.datetime.now().year)
     def __unicode__(self):
         return self.title
 		
