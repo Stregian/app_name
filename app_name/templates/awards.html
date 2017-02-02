@@ -1,0 +1,16 @@
+
+<head>
+Awards page
+</head>
+<body>
+Awards page: 
+{% if awards_list %}
+    <ul>
+    {% for award in awards_list %}
+        <li><a href="/projects/{{ award.slug }}/">{{ award.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>...</p>
+{% endif %}
+</body>

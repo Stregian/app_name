@@ -5,6 +5,7 @@ from sorl.thumbnail.admin import AdminImageMixin
 class ImageInline(AdminImageMixin, admin.TabularInline):
     extra = 1
     model = Image
+    readonly_fields = ('id',)
 
 class ProjectAdmin(admin.ModelAdmin):
 	list_filter = ('categories','location')

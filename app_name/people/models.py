@@ -5,6 +5,8 @@ import time
 import os
 from django.template.defaultfilters import slugify
 from general.models import Category
+from django_extensions.db.fields import AutoSlugField
+
 
 def image_path(instance, filename):
     filename = os.path.splitext(filename)
@@ -24,6 +26,7 @@ class Category(Category):
 	
 class Staff(models.Model):
 	name = models.CharField(max_length=255)
+	slug = AutoSlugField(populate_from=('name'), unique=True, max_length=100,editable=True)
 	category = models.ManyToManyField(Category)
 	profile = ImageField(upload_to = image_path)
 	description = models.TextField(null = True)

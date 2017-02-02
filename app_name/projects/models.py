@@ -12,7 +12,7 @@ from django.utils import timezone
 # Create your models here.
 YEAR_CHOICES = []
 for y in range(1990,timezone.now().year + 5):
-	YEAR_CHOICES.append((y,y))
+    YEAR_CHOICES.append((y,y))
 
 def image_path(instance, filename):
     filename = os.path.splitext(filename)
@@ -36,19 +36,15 @@ class Project(models.Model):
     year = models.IntegerField(choices=YEAR_CHOICES, default=timezone.now().year)
     def __unicode__(self):
         return self.title
-		
+        
 
 class Image(models.Model):
     fk = models.ForeignKey('projects.Project', related_name='related_image')
-	#number = models.IntegerField(default = 0)
     image = ImageField(upload_to=image_path)
-	#thumbnail = ImageField(upload_to= 'projects/', null = True)
-	#description = models.TextField(blank = True)
-	
     def __unicode__(self):
         return os.path.basename(self.image.name)
 
 
 class Category(Category):
-	pass
-	#fk = models.ForeignKey('projects.Project', related_name='related_category', null = True)
+    pass
+    #fk = models.ForeignKey('projects.Project', related_name='related_category', null = True)Z

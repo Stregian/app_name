@@ -1,0 +1,15 @@
+<head>
+Competitions page
+</head>
+<body>
+Competitions page
+{% if competition_list %}
+    <ul>
+    {% for competition in competition_list %}
+        <li><a href="/projects/{{ award.slug }}/">{{ competition.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>...</p>
+{% endif %}
+</body>

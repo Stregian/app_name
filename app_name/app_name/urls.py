@@ -23,14 +23,18 @@ urlpatterns = [
 
     url(r'^admin/', admin.site.urls),
     
-	url(r'^studio/', views.studio_index, name ='studio_index'),
-	url(r'^studio/awards/$', views.awards, name='awards'),
+
+	   url(r'^studio/awards/$', views.awards, name='awards'),
     url(r'^studio/competitions/$', views.competitions, name='competitions' ),
     url(r'^studio/publications/$', views.publications, name='publications'),
-	url(r'^projects/$', views.project_index, name = 'project_index'),
+   	url(r'^studio/', views.studio_index, name ='studio_index'),
+    
+	   url(r'^projects/$', views.project_index, name = 'project_index'),
     url(r'^projects/(?P<slug>[-\w]+)/$', views.project, name = 'project'),
-	url(r'^people/$', views.people_index, name = 'people_index'),
-	url(r'^people/(?P<slug>[-\w]+)$/', views.person, name = 'person'),
+    
+	   url(r'^people/$', views.people_index, name = 'people_index'),
+	   url(r'^people/(?P<slug>[-\w]+)/$', views.person, name = 'person'),
+	
     url(r'^$',views.index, name = 'index'),
     url(r'^contact$', views.contact, name ='contact'),
 ]

@@ -2,20 +2,9 @@
 {% load thumbnail %}
 <body>
 <br/>
-{% for i in project.related_image.all %}
-
-	{% thumbnail i.image "100x100" crop="center" as im %}
-    	<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
-    {% endthumbnail %}	
-	
-{% endfor %}
-
 
 {% for i in project.related_image.all %}
 
-
-    	
-    	
     	{% if i.image|is_portrait %}
     		<p>Portrait</p>
     		{% thumbnail i.image "x1000" as im %}
@@ -28,6 +17,16 @@
     		{% endthumbnail %}
     	{% endif %}
 
-
 {% endfor %}
+
+
+{% for i in project.related_image.all %}
+
+	{% thumbnail i.image "100x100" crop="center" as im %}
+    	<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+    {% endthumbnail %}	
+	
+{% endfor %}
+
+
 <body>

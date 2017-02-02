@@ -1,0 +1,10 @@
+<head>{{ person.name }}</head>
+{% load thumbnail %}
+<body>
+<p>Staff profile</p>
+<br/>
+{% thumbnail person.profile "x200" as im %}
+    <img src="{{ im.url }}" >
+{% endthumbnail %}
+<rb/>
+<p>{{ person.description }}</p>
