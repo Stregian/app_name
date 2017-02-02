@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>    
+    {% block title %}
+    Panter Hudspith
+    {% endblock title %}
+    </title>
+    </head>
+
+    <body>
+    {% block navbar %}
+        
+        <ul>
+            <li><a href = "www.panterhudspith.com"><img src ="{{logo}}"></a></li>
+            <li><a href = "www.panterhudspith.com/studio">Studio</a></li>
+            <li><a href = "www.panterhudspith.com/projects">Projects</a></li>
+            <li><a href = "www.panterhudspith.com/people">People</a></li>
+            <li><a href = "www.panterhudspith.com/contact">Contact</a></li>
+        </ul>
+    {% endblock navbar %}
+    {% block content %}
+    <p>Here is where the content should go</p>
+    {% endblock content %}
+    </body>
+</html>

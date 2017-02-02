@@ -35,6 +35,7 @@ INSTALLED_APPS = [
 	'people.apps.PeopleConfig',
 	'studio.apps.StudioConfig',
 	'projects.apps.ProjectsConfig',
+	'news.apps.NewsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
