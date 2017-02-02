@@ -5,7 +5,8 @@ from projects.models import Project
 import time
 import os
 from django.template.defaultfilters import slugify
-import datetime
+from django.utils import timezone
+from general.general import file_path, get_year_list
 # Create your models here.
 
 
@@ -21,9 +22,9 @@ def file_path(instance, filename):
 class Award(models.Model):
 	project = models.ForeignKey(Project, null = True)
 	title = models.CharField(max_length = 50)
-	#year = models.IntegerField()
+	year = models.IntegerField(choices = get_year_list(1990,5), default = timezone.now().year)
 	slug = AutoSlugField(populate_from=('project'), unique=True, max_length=100,editable=True)  
-	date = models.DateField(default = datetime.datetime.now())
+	date = models.DateField(default = timezone.now)
 	
 	
 	def __unicode__(self):
@@ -32,20 +33,20 @@ class Award(models.Model):
 class Competition(models.Model):
 	title = models.CharField(max_length = 100)
 	result = models.CharField(max_length = 50)
-	#year = models.IntegerField()
+	year = models.IntegerField(choices = get_year_list(1990,5), default = timezone.now().year)
 	project = models.ForeignKey(Project, null = True)
 	slug = AutoSlugField(populate_from=('project'), unique=True, max_length=100,editable=True)  
-	date = models.DateField(default = datetime.datetime.now())
+	date = models.DateField(default = timezone.now)
 	
 	def __unicode__(self):
 		return self.title	
 	
 class Publication(models.Model):
 	title = models.CharField(max_length = 200)
-	#year = models.IntegerField()
+	year = models.IntegerField(choices = get_year_list(1990,5), default = timezone.now().year)
 	pdf = models.FileField(upload_to = file_path)
 	slug = AutoSlugField(populate_from=('title'), unique=True, max_length=100,editable=True)  
-	date = models.DateField(default = datetime.datetime.now())
+	date = models.DateField(default = timezone.now)
 
 	
 	def __unicode__(self):

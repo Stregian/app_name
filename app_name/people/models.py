@@ -4,6 +4,7 @@ from sorl.thumbnail import ImageField
 import time
 import os
 from django.template.defaultfilters import slugify
+from general.models import Category
 
 def image_path(instance, filename):
     filename = os.path.splitext(filename)
@@ -16,13 +17,9 @@ def image_path(instance, filename):
     
     
 	
-class Category(models.Model):
-	category = models.CharField(max_length=255)
-	
-	def __unicode__(self):
-		return self.category
-	class Meta:
-		verbose_name_plural = "Categories"
+class Category(Category):
+	pass
+
 	
 	
 class Staff(models.Model):

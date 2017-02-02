@@ -3,13 +3,15 @@ from django.db import models
 from django_extensions.db.fields import AutoSlugField
 from sorl.thumbnail import ImageField
 import time
-import datetime
 import os
 from django.template.defaultfilters import slugify
+from general.models import Category
+from general.general import get_year_list, file_path
+from django.utils import timezone
 
 # Create your models here.
 YEAR_CHOICES = []
-for y in range(1990,datetime.datetime.now().year+5):
+for y in range(1990,timezone.now().year + 5):
 	YEAR_CHOICES.append((y,y))
 
 def image_path(instance, filename):
@@ -24,29 +26,20 @@ def image_path(instance, filename):
     return '/'.join(['uploads', filepath, filename])
 
 
-class Category(models.Model):
-    category = models.CharField(max_length=50)
-    class Meta:
-		verbose_name_plural = "Categories"
-	
-    def __unicode__(self):
-		return self.category	
-
-
 class Project(models.Model):
     title = models.CharField(max_length=100, help_text="The name of this project")
     location = models.CharField(max_length=50, default="")
     information = models.TextField()
     slug = AutoSlugField(populate_from=('title'), unique=True, max_length=100,editable=True)  
-    categories = models.ManyToManyField(Category)
-    date = models.DateField(default = datetime.datetime.now())
-    year = models.IntegerField(max_length=4, choices=YEAR_CHOICES, default=datetime.datetime.now().year)
+    categories = models.ManyToManyField('projects.Category', blank = True)
+    date = models.DateField(default = timezone.now)
+    year = models.IntegerField(choices=YEAR_CHOICES, default=timezone.now().year)
     def __unicode__(self):
         return self.title
 		
 
 class Image(models.Model):
-    fk = models.ForeignKey(Project, related_name='related_image')
+    fk = models.ForeignKey('projects.Project', related_name='related_image')
 	#number = models.IntegerField(default = 0)
     image = ImageField(upload_to=image_path)
 	#thumbnail = ImageField(upload_to= 'projects/', null = True)
@@ -54,4 +47,8 @@ class Image(models.Model):
 	
     def __unicode__(self):
         return os.path.basename(self.image.name)
-	#def save(self):
+
+
+class Category(Category):
+	pass
+	#fk = models.ForeignKey('projects.Project', related_name='related_category', null = True)

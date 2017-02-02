@@ -14,6 +14,7 @@ import os
 LOCAL = True
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+print BASE_DIR
 
 
 # Quick-start development settings - unsuitable for production
@@ -32,18 +33,20 @@ ALLOWED_HOSTS = [	u'139.162.217.204',
 # Application definition
 
 INSTALLED_APPS = [
-	'people.apps.PeopleConfig',
-	'studio.apps.StudioConfig',
-	'projects.apps.ProjectsConfig',
-	'news.apps.NewsConfig',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'sorl.thumbnail',
     
-     'sorl.thumbnail',
+	'people.apps.PeopleConfig',
+	'studio.apps.StudioConfig',
+	'projects.apps.ProjectsConfig',
+	'news.apps.NewsConfig',
+	'general',
 ]
 
 MIDDLEWARE = [

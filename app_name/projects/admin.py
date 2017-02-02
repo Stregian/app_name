@@ -7,7 +7,8 @@ class ImageInline(AdminImageMixin, admin.TabularInline):
     model = Image
 
 class ProjectAdmin(admin.ModelAdmin):
-    inlines = [ImageInline]
+	list_filter = ('categories','location')
+	inlines = [ImageInline]
 
    
 
