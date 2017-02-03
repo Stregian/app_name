@@ -1,5 +1,0 @@
-{% extends "base.html" %}
-
-{% block content %}
-The landing page for the site 
-{% endblock %}

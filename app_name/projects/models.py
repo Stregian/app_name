@@ -39,12 +39,11 @@ class Project(models.Model):
         
 
 class Image(models.Model):
-    fk = models.ForeignKey('projects.Project', related_name='related_image')
+    fk = models.ForeignKey('projects.Project', related_name='related_image', blank = True)
     image = ImageField(upload_to=image_path)
     def __unicode__(self):
         return os.path.basename(self.image.name)
 
 
 class Category(Category):
-    pass
-    #fk = models.ForeignKey('projects.Project', related_name='related_category', null = True)Z
+    fk = models.ForeignKey('projects.Project', related_name='related_category', blank = True)

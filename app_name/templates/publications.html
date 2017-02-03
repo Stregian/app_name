@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block image %}
+	{% include "image_template.html" with image=image.image %}
+{% endblock %}
+{% block content %}
+{% if publication_list %}
+    <ul>
+    {% for publication in publication_list %}
+        <li><a href="/pdfs/{{ publication.slug }}.pdf" target="_blank">{{publication.journal}}, {{publication.year}} - {{ publication.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% endif %}
+{% endblock %}

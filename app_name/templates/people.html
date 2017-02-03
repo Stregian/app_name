@@ -1,10 +1,17 @@
-<head>{{ person.name }}</head>
+{% extends "base.html" %}
+
 {% load thumbnail %}
-<body>
-<p>Staff profile</p>
-<br/>
-{% thumbnail person.profile "x200" as im %}
-    <img src="{{ im.url }}" >
-{% endthumbnail %}
-<rb/>
-<p>{{ person.description }}</p>
+    {% block title %}
+    	Panter Hudspith - {{person.name}}
+    {% endblock title %}
+
+
+{% block content %}
+	<p>Staff profile</p>
+	<br/>
+	{% thumbnail person.profile "x200" as im %}
+	    <img src="{{ im.url }}" >
+	{% endthumbnail %}
+	<p>{{ person.description|linebreaksbr }}</p>
+
+{% endblock %}

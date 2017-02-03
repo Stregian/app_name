@@ -1,5 +1,8 @@
 {% extends "base.html" %}
 
+{% block image %}
+	{% include "image_template.html" with image=image.image %}
+{% endblock %}
 {% block content %}
-The landing page for the site 
+<p>The landing page for the site.</p> 
 {% endblock %}

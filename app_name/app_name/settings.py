@@ -14,7 +14,6 @@ import os
 LOCAL = True
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-print BASE_DIR
 
 
 # Quick-start development settings - unsuitable for production
@@ -138,5 +137,5 @@ if LOCAL:
 else: 
 	STATIC_ROOT = '/srv/django-static-files/app_name'
 	
-
+print(MEDIA_ROOT)
 THUMBNAIL_DEBUG = DEBUG

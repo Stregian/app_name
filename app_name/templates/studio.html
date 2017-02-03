@@ -1,15 +1,25 @@
-{% load thumbnail %}
-<head></head>
+{% extends "base.html" %}
 
-<body>
+{% block image %}
+	{% include "image_template.html" with image=image.image %}
+{% endblock %}
+{% block content %}
+	<ul>
+    	<li><a href = "http://127.0.0.1:8000/studio/awards/"> Awards </a></li>
+    	<li><a href = "http://127.0.0.1:8000/studio/competitions/"> Competitions </a></li>
+   	 <li><a href = "http://127.0.0.1:8000/studio/publications/"> Publications  </a></li>
+	</ul>
 
-{% thumbnail image.image "400x400" as im %}
-    <img src = {{im.url}}> 
-{% endthumbnail %}
-<ul>
-    <li><a href = "http://127.0.0.1:8000/studio/awards/"> Awards </a></li>
-    <li><a href = "http://127.0.0.1:8000/studio/competitions/"> Competitions </a></li>
-    <li><a href = "http://127.0.0.1:8000/studio/publications/"> Publications  </a></li>
-</ul>
+{% if news %}
+	<ul>
+    {% for article in news %}
+        <li>{{ article.title }}
+        <br>
+        	{{article.article}}
+        </li>
+    {% endfor %}
+    </ul>
+{% endif %}
 
+{% endblock %}
 </body>

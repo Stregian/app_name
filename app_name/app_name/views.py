@@ -10,11 +10,12 @@ from studio.models import Award, Publication, Competition
 
 
 def index(request):
-    return render(request, 'base_index.html')
+    image = get_object_or_404(Image,id = 5)
+    context = {'image':image}
+    return render(request, 'base_index.html', context)
 
 def contact(request):
-    html = 'contact page with map and email address'
-    return HttpResponse(html)
+    return render(request,'contact.html')
 	
 
 def people_index(request):
@@ -31,7 +32,8 @@ def person(request, slug):
 
 def studio_index(request):
     image = get_object_or_404(Image,id = 5)
-    context = {'image':image}
+    news = Article.objects.order_by('date').reverse()[0:2]
+    context = {'image':image, 'news':news}
     return render (request,'studio.html',context)
 	
 def awards(request):
@@ -45,10 +47,14 @@ def competitions(request):
     return render(request, 'competitions.html', context)
 	
 def publications(request):
-    publication_list = Publication.objects.order_by('date')
+    publication_list = Publication.objects.order_by('year')
     context ={'publication_list': publication_list} 
-    return render(request, 'publication.html', context)
+    return render(request, 'publications.html', context)
 
+def pdf_return(request,slug):
+    pdf = get_object_or_404(Publication, slug=slug)
+    pdf_data = pdf.pdf.read()
+    return HttpResponse(pdf_data, content_type='application/pdf')
 
 def project_index(request):
     project_list = Project.objects.order_by('date')

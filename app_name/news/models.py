@@ -10,3 +10,6 @@ class Article(models.Model):
     title = models.CharField(max_length=255)
     project = models.ForeignKey(Project)
     date = models.DateTimeField(default = timezone.now)
+
+    def __unicode__(self):
+    	return self.title
