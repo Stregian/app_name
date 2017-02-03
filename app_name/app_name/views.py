@@ -10,8 +10,7 @@ from studio.models import Award, Publication, Competition
 
 
 def index(request):
-    html = 'the landing page for the site, with an image and three news articles'
-    return HttpResponse(html)
+    return render(request, 'base_index.html')
 
 def contact(request):
     html = 'contact page with map and email address'
