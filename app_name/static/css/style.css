@@ -1,4 +1,73 @@
 body {
     background-color: #333333;
-    font-family: Verdana, Arial, Helvetica, sans-serif, Century Gothic;
+	font-family: Century Gothic;
+	margin-left:10%;
+	margin-right:10%;
+}
+
+#logo {
+	position:absolute;
+	left:10%;
+	top:5%;
+    width:40%; 
+    height:5%;
+    background-color: yellow;
+}
+
+#navbar  {
+	position:absolute;
+	right:10%;
+	top:5%;
+    width:40%;
+    height:5%;
+    background-color: red;
+}
+
+#content {
+	display:block;
+	position:absolute;
+	left:10%;
+	top:10%;	
+	width:60%;
+	background-color: green;
+	height:80%;
+}
+
+#sidebar {
+	position:absolute;
+	right:10%;
+	top:10%;
+	width:20%;
+	height:80%;
+	background-color: blue;
+}
+
+#image {
+	background-color: purple;
+	position: absolute;
+	right:10%;
+	left:10%;
+	width: 80%;
+	height:80%;
+	top:10%;
+}
+ul {
+	display: block;
+    list-style-type: none;
+    right:0%;
+}
+
+.navbar {
+	position: relative;
+    display: inline;
+    right:0%;
+    text-decoration: none;
+    margin:5px;
+}
+
+.logo{
+	position:absolute;
+	width: 200px;
+	height: 20px;
+	left: 0%;
 }

@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+<div id="content">
 {% if project_list %}
     <ul>
     {% for project in project_list %}
@@ -9,4 +10,8 @@
 {% else %}
     <p>No projects are available.</p>
 {% endif %}
+</div>
 {% endblock %}
+{% block sidebar %}
+	{% include "sidebar.html" with list=project_list property=category%}
+{% endblock sidebar %}

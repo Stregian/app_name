@@ -1,7 +1,9 @@
 {% load thumbnail %}
 
 {% block image %}
-	{% thumbnail image "500x500" as im %}
+	<div id = "image">
+	{% thumbnail image size as im %}
 		<img src="{{im.url}}">
 	{% endthumbnail %}
+	</div>
 {% endblock %}

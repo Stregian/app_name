@@ -10,7 +10,7 @@ from studio.models import Award, Publication, Competition
 
 
 def index(request):
-    image = get_object_or_404(Image,id = 5)
+    image = get_object_or_404(Image,id = 1)
     context = {'image':image}
     return render(request, 'base_index.html', context)
 
@@ -31,7 +31,7 @@ def person(request, slug):
 	
 
 def studio_index(request):
-    image = get_object_or_404(Image,id = 5)
+    image = get_object_or_404(Image,id = 1)
     news = Article.objects.order_by('date').reverse()[0:2]
     context = {'image':image, 'news':news}
     return render (request,'studio.html',context)

@@ -1,14 +1,24 @@
 {% extends "base.html" %}
 
-{% block image %}
-	{% include "image_template.html" with image=image.image %}
-{% endblock %}
+
 {% block content %}
+<div id="content">
 {% if publication_list %}
     <ul>
     {% for publication in publication_list %}
-        <li><a href="/pdfs/{{ publication.slug }}.pdf" target="_blank">{{publication.journal}}, {{publication.year}} - {{ publication.title }}</a></li>
+        <li><a href="/pdfs/{{ publication.slug }}.pdf" target="_blank">{{publication.journal}} {{publication.year}} - {{ publication.title }}</a></li>
     {% endfor %}
     </ul>
 {% endif %}
-{% endblock %}
+</div>
+{% endblock content %}
+
+{% block sidebar %}
+    <div id="sidebar">
+    <ul>
+        <li><a href = "http://127.0.0.1:8000/studio/awards/"> Awards </a></li>
+        <li><a href = "http://127.0.0.1:8000/studio/competitions/"> Competitions </a></li>
+     <li><a href = "http://127.0.0.1:8000/studio/publications/"> Publications  </a></li>
+    </ul>
+    </div>
+{% endblock sidebar %}

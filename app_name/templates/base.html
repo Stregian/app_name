@@ -1,35 +1,42 @@
 <!DOCTYPE html>
 {% load thumbnail %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />   
 <html>
     <head>
         <title>    
-    {% block title %}
-    Panter Hudspith
-    {% endblock title %}
-    </title>
+            {% block title %}
+                Panter Hudspith
+            {% endblock title %}
+        </title>
     </head>
-
     <body>
-    {% block navbar %}
-        <!--{% thumbnail "{{ MEDIA_ROOT }}/logo.jpg" "150x15" as im %}
-            <img src="{{ im.url }}" >
-        {% endthumbnail %}
-        -->
+        {% block navbar %}
+        <div id="logo">
+            <ul>
+               <li ><a href = "http://127.0.0.1:8000/">
+               <img src="/media/logo.jpg" alt="Logo" class="logo" >
+                </a></li>
+            
+            </ul>
+        </div>
+
+        <div id="navbar">
+            <ul>
+                <li class="navbar"><a href = "http://127.0.0.1:8000/studio">Studio</a></li>
+                <li class="navbar"><a href = "http://127.0.0.1:8000/projects">Projects</a></li>
+                <li class="navbar"><a href = "http://127.0.0.1:8000/people">People</a></li>
+                <li class="navbar"><a href = "http://127.0.0.1:8000/contact">Contact</a></li>
+            </ul>
+        </div>
+        {% endblock navbar %}
+        {% block content %}
+        {% endblock content %}
+        {% block sidebar %}
+        {% endblock sidebar %}
+        {% block image %}
+        {% endblock image %}
         
-        <ul>
-            <li><a href = "http://127.0.0.1:8000/">
-            <img src="/media/logo.jpg" alt="Logo" style="width:150px;height:20px;">
-            </a></li>
-            <li><a href = "http://127.0.0.1:8000/studio">Studio</a></li>
-            <li><a href = "http://127.0.0.1:8000/projects">Projects</a></li>
-            <li><a href = "http://127.0.0.1:8000/people">People</a></li>
-            <li><a href = "http://127.0.0.1:8000/contact">Contact</a></li>
-        </ul>
-    {% endblock navbar %}
-    {% block image %}
-    {% endblock %}
-    {% block content %}
-    <p>Here is where the content should go</p>
-    {% endblock content %}
+</div>
     </body>
 </html>

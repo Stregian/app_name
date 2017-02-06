@@ -1,8 +1,6 @@
-<head>{{ project.title }}</head>
+{% extends "base.html"%}
 {% load thumbnail %}
-<body>
-<br/>
-
+{% block content%}
 {% for i in project.related_image.all %}
 
     	{% if i.image|is_portrait %}
@@ -28,5 +26,4 @@
 	
 {% endfor %}
 
-
-<body>
+{% endblock %}

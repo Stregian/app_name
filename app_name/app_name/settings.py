@@ -132,10 +132,10 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 if LOCAL:
-	STATIC_ROOT = os.path.abspath('static')
-	MEDIA_ROOT = os.path.abspath('media')
+	MEDIA_ROOT = os.path.abspath('media') ##### Don't add a STATIC_ROOT here while using the development server, use STATICFILE_DIRS to point at the static you need, then add urlpatterns += staticfiles_urlpatterns() to urls.py. This took waaay too long. 
 else: 
 	STATIC_ROOT = '/srv/django-static-files/app_name'
-	
-print(MEDIA_ROOT)
+
+print STATIC_URL
+STATICFILES_DIRS = ( '/home/strix/work/www/app_name/app_name/static/',)
 THUMBNAIL_DEBUG = DEBUG
