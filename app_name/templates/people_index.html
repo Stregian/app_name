@@ -1,5 +1,6 @@
 {% extends "base.html" %}
-{% block content %}
+{% block sidebar %}
+<div id="sidebar">
 {% if staff_list %}
     <ul>
     {% for person in staff_list %}
@@ -9,4 +10,10 @@
 {% else %}
     <p>No staff are available.</p>
 {% endif %}
-{% endblock %}
+</div>
+{% endblock sidebar  %}
+{% block content %}
+<div id="content">
+	Here is a story about the staff
+</div>
+{% endblock content%}

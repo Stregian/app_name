@@ -26,7 +26,8 @@ def people_index(request):
 	
 def person(request, slug):
     person = get_object_or_404(Staff, slug=slug)
-    context = {'person':person}
+    staff_list = Staff.objects.order_by('slug')
+    context = {'person':person, 'staff_list':staff_list}
     return render(request, 'people.html',context)
 	
 

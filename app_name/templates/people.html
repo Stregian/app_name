@@ -1,17 +1,30 @@
 {% extends "base.html" %}
-
 {% load thumbnail %}
     {% block title %}
     	Panter Hudspith - {{person.name}}
     {% endblock title %}
 
+{% block sidebar %}
+<div id="sidebar">
+{% if staff_list %}
+    <ul>
+    {% for person in staff_list %}
+        <li><a href="/people/{{ person.slug }}/">{{ person.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No staff are available.</p>
+{% endif %}
+</div>
+{% endblock sidebar %}
 
 {% block content %}
+<div id="content">
 	<p>Staff profile</p>
 	<br/>
 	{% thumbnail person.profile "x200" as im %}
 	    <img src="{{ im.url }}" >
 	{% endthumbnail %}
 	<p>{{ person.description|linebreaksbr }}</p>
-
-{% endblock %}
+</div>
+{% endblock content %}
